@@ -6,6 +6,7 @@ import os
 #from credentz import * # stores credential information such as SSK, CLIENT_SESSION, CLIENT_ID
 import time
 import json
+import db
 
 # Load environment variables from .env file
 load_dotenv()
@@ -126,3 +127,10 @@ if __name__ == "__main__":
 # in the client/package.json file you may need to change the proxy to the start of your link (everything preceding /members above) so we can use relative paths
 # following this video: https://www.youtube.com/watch?v=7LNl2JlZKHA&ab_channel=ArpanNeupane
 # everyone will need to go into the package.json file and change the proxy to their local tunnel
+  
+
+  #test to insert data to the data base
+@app.route("/test")
+def test():
+    db.db.collection.insert_one({"name": "John"})
+    return "Connected to the data base!"
